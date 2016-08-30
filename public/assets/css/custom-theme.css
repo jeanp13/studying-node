@@ -42,3 +42,34 @@ h1{}
 .form-signin{
     margin-top: 20px !important;
 }
+
+
+/* *************************************************************************************
+* CUSTOM-BOX
+************************************************************************************* */
+.custom-box{
+    padding: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+    .custom-box .box-header{
+        margin: 0;
+        padding: 5px;
+    }
+
+.box-purple{
+    background-color: #3A0D72;
+}
+.box-purple .box-header{
+    color: #FFFFFF;
+}
+
+/* *************************************************************************************
+* BOOTSTRAP OVERWRITE
+************************************************************************************* */
+.form-control{
+    height: 40px;
+    background-color: #f7f7f7;
+    border: 1px solid #e1e1e1;
+}

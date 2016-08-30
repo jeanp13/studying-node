@@ -51,4 +51,4 @@ module.exports = function(){
 
     return mongoose.model('Usuario', schema);
 
-};
+}

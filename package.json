@@ -29,6 +29,7 @@
     "moment": "^2.13.0",
     "mongoose": "^4.4.14",
     "mongoose-findorcreate": "^0.1.2",
+    "mongoose-materialized": "^0.1.8",
     "nodemailer": "^2.4.2",
     "nodemailer-smtp-transport": "^2.5.0",
     "passport": "^0.3.2",

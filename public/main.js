@@ -1,4 +1,4 @@
-angular.module('studying-node',['ui.router','restangular','satellizer','ui.bootstrap', 'authentication','dt.alert'])
+angular.module('studying-node',['ui.router','restangular','satellizer','ui.bootstrap', 'authentication','dt.alert', 'ngMap'])
 
     // Restangular confidurantion
     .config(function(RestangularProvider, $httpProvider, $locationProvider) {

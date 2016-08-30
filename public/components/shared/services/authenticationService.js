@@ -48,6 +48,7 @@ angular.module('studying-node')
                 return $q(function(resolve, reject) {
                     $auth.authenticate('facebook')
                         .then(function(response) {
+                            console.log(response);
                             resolve(response);
                         })
                         .catch(function(error) {

@@ -11,7 +11,7 @@ angular.module('authentication',[])
                     }
                 }
             })
-            .state('home.signUp', {
+            .state('home.signup', {
                 url: 'sign-up',
                 views: {
                     'content@':{

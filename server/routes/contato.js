@@ -7,6 +7,7 @@ module.exports = function (app) {
         .post(authService().isAuthenticated, controller.create)
         .put(authService().isAuthenticated, controller.update);
 
+    
     app.route('/contatos/:id')
         .get(authService().isAuthenticated, controller.findOne)
         .delete(authService().isAuthenticated, controller.delete);

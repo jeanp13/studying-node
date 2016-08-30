@@ -4,58 +4,108 @@
         <h1 class="page-header">Adicionar um novo serviço ao NuMap</h1>
 
         <form name="createServiceForm" class="">
+            <div map-lazy-load="https://maps.googleapis.com/maps/api/js?libraries=places" map-lazy-load-params="{{googleMapsUrl}}">
+                <div class="form-group">
+                    <label for="inputName" class="">Nome do Serviço</label>
+                    <input type="text" id="inputName" class="form-control" ng-model="service.name" placeholder="Informe o nome" required="" autofocus="">
+                </div>
 
-            <div class="form-group">
-                <label for="inputName" class="">Nome</label>
-                <input type="text" id="inputName" class="form-control" ng-model="service.name" placeholder="Informe o nome" required="" autofocus="">
-            </div>
+                <div class="form-group">
+                    <label for="inputAddress" class="">Buscar Endereço</label>
 
-            <div class="form-group">
-                <label for="inputAddress" class="">Endereço</label>
-                <input type="text" id="inputAddress" class="form-control" ng-model="service.address" placeholder="Informe o endereço" required="" onFocus="geolocate()">
-            </div>
+                    <input id="inputAddress"
+                            class="form-control"
+                            places-auto-complete size="100"
+                            component-restrictions="{country:'br'}"
+                            ng-model="address"
+                            types="{{types}}"
+                            on-place-changed="placeChanged()" />
+                </div>
 
-            <div class="form-group">
-                <label for="inputCity" class="">Cidade</label>
-                <input type="text" id="inputCity" class="form-control" ng-model="service.city" placeholder="Informe a cidade" required="">
-            </div>
+                <div class="form-group">
+                    <label for="inputCity" class="">Rua</label>
+                    <input type="text" id="inputStreet" class="form-control" ng-model="service.address.route" placeholder="Informe a rua" required="">
+                </div>
 
-            <div class="form-group">
-                <label for="inputCity" class="">Estado</label>
-                <input type="text" id="inputState" class="form-control" ng-model="service.state" placeholder="Informe o estado" required="">
-            </div>
+                <div class="form-group">
+                    <label for="inputCity" class="">Complemento</label>
+                    <input type="text" id="inputComplement" class="form-control" ng-model="service.address.complement" placeholder="Complemento" required="">
+                </div>
 
-            <div class="form-group">
-                <label for="inputCity" class="">CEP</label>
-                <input type="text" id="inputCep" class="form-control" ng-model="service.cep" placeholder="Informe o estado" required="">
-            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputCity" class="">Cidade</label>
+                            <input type="text" id="inputCity" class="form-control" ng-model="service.address.locality" placeholder="Informe a cidade" required="">
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <label for="inputPassword" class="">Senha</label>
-                <input type="password" id="inputPassword" class="form-control" ng-model="user.password" placeholder="Informe a senha" required="">
-            </div>
-            <div class="btn-toolbar">
-                <button class="btn btn-success" type="submit" ng-click="signup()">Cadastrar</button>
-                <a ui-sref="index" class="btn btn-danger">Cancelar</a>
-            </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputCity" class="">Estado</label>
+                            <input type="text" id="inputState" class="form-control" ng-model="service.address.administrative_area_level_1" placeholder="Informe o estado" required="">
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputCity" class="">CEP</label>
+                            <input type="text" id="inputCep" class="form-control" ng-model="service.address.postal_code" placeholder="Informe o estado" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputCity" class="">País</label>
+                            <input type="text" id="inputCountry" class="form-control" ng-model="service.address.country" placeholder="Informe o país" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" form-group custom-box box-purple">
+                    <label class="box-header">Arraste o marcador para o local desejado no mapa</label>
+                    <ng-map
+                            on-click="addMarker()"
+                            scrollwheel="false"
+                            zoom="18">
+                        <marker position="{{service.address.lat}}, {{service.address.lng}}" draggable="true" on-dragend="markerChanged()"></marker>
+                    </ng-map>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputPhone" class="">Telefone</label>
+                            <input type="text" id="inputPhone" class="form-control" ng-model="service.phone" placeholder="Informe o seu telefone" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputCity" class="">Celular (Opcional)</label>
+                            <input type="text" id="inputMobile" class="form-control" ng-model="service.mobile" placeholder="Informe o seu celular">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputCategory" class="">Categoria</label>
+                    <select class="form-control" ng-model="service.category"  id="inputCategory">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+                <div class="btn-toolbar">
+                    <button class="btn btn-success" type="submit" ng-click="signup()">Cadastrar</button>
+                    <a ui-sref="index" class="btn btn-danger">Cancelar</a>
+                </div>
+
+            </div>
         </form>
-
-aaaa
-
-
-    <div id="map" style=" width: 600px; height: 300px;"></div>
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn5ibHt2HA_j1gzit--kc1Uv21poNhotY&libraries=places&callback=initAutocomplete"
-            async defer></script>
     </div>
-
 </div>
