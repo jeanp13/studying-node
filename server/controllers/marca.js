@@ -19,6 +19,22 @@ module.exports = function (app) {
 
     };
 
+    controller.findByName = function (req, res) {
+        var name = req.params.name;
+
+        Marca.findOne({name: this.name }).exec().then(
+            function(response){
+                if(!response){
+                    res.status(404).json("Marca não foi localizada!");
+                }
+                res.json(response);
+            },
+            function(error){
+                res.status(500).json(error);
+            }
+        );
+    };
+
     controller.findOne = function (req, res) {
         var id = req.params.id;
 

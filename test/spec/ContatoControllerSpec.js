@@ -1,4 +1,4 @@
-describe('ContatoController', function(){
+/*describe('ContatoController', function(){
 
     var ctrl,
         $scope,
@@ -67,4 +67,4 @@ describe('ContatoController', function(){
     });
 
 
-});
+});*/

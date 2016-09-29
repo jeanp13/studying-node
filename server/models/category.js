@@ -1,15 +1,15 @@
-var mongoose = require('mongoose'),
-    materializedPlugin  = require('mongoose-materialized');
+// var mongoose = require('mongoose'),
+//     materializedPlugin  = require('mongoose-materialized');
 
-module.exports = function () {
+// module.exports = function () {
 
-    var schema = mongoose.Schema({
-        name: {type: String, required: true},
-        picture: {type: String}
-    });
+//     var schema = mongoose.Schema({
+//         name: {type: String, required: true},
+//         picture: {type: String}
+//     });
 
-    schema.plugin(materializedPlugin);
+//     schema.plugin(materializedPlugin);
 
-    return mongoose.model('Category', schema);
+//     return mongoose.model('Category', schema);
 
-}
+// }

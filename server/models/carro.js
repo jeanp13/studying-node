@@ -1,12 +1,9 @@
-var mongoose = require("mongoose");
+
+var mongoose = require('mongoose');
 
 module.exports = function(){
 
     var schema = mongoose.Schema({
-        nome: {
-            type: String,
-            required: true
-        },
         modelo: {
             type: String,
             required: true
@@ -16,7 +13,6 @@ module.exports = function(){
             ref: 'Marca'
 
         }
-
     });
 
     return mongoose.model('Carro', schema);

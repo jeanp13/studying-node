@@ -4,6 +4,7 @@ var passport = require('passport'),
     ExtractJwt = require('passport-jwt').ExtractJwt,
     mongoose = require('mongoose'),
     config = require('./variables');
+    // Usuario = require('../models/user');
 
 module.exports = function(){
 

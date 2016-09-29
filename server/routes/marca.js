@@ -11,4 +11,7 @@ module.exports = function(app){
         .get(controller.findOne)
         .delete(controller.delete);
 
+    app.route('/marca/name/:name')
+        .get(controller.findByName);
+
 }
