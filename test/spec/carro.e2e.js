@@ -13,31 +13,15 @@ describe('Carro CRUD integration testing', function () {
 
     describe("Get All", function (done) {
 
-        var expectedResult = [
-            {
-                "_id": "57ed27e534e375050ce548de",
-                "modelo": "320i",
-                "marca": {
-                    "_id": "57db1fc6bd86ca728590ba1b",
-                    "nome": "BMW",
-                    "__v": 0
-                },
-                "__v": 0
-            }
-        ];
-
-
         it("GET /carro", function (done) {
             request(app)
                 .get('/carro')
                 .set('Accept', 'application/json')
-                .expect(
-                    function (response) {
-                        response = 123;
-                    }
-                )
-                // .expect(200, expectedResult, done);
                 .end(function (err, result) {
+
+                    assert.equal(result.status, 404);
+                    assert.equal(result.body[0].modelo, "320i");
+
                     console.log("RESULT = ", result.body)
                     console.log("STATUS = ", result.status)
                     done();
